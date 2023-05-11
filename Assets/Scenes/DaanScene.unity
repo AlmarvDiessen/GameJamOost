@@ -241,6 +241,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62ab538d9475c8b4181da6f3367e2324, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 1.5
+  jumpF: 2.8
 --- !u!114 &1027360677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,7 +279,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1027360675}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 398a579f2f52b6e4fa2603ecb19642a8, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
