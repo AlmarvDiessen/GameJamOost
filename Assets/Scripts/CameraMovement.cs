@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
+
+    private Vector3 offset = new Vector3 (0, 0, -10f);
+    [SerializeField] private float smoothTime= 0.25f;
+    private Vector3 velocity = Vector3.zero;
+
     [SerializeField] private Transform player;
-    [SerializeField] private float speed = 0.1f;
 
     // Start is called before the first frame update
     void Start()
@@ -13,8 +17,11 @@ public class CameraMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        gameObject.transform.position = new Vector3(Mathf.Lerp(gameObject.transform.position.x, player.position.x, speed), Mathf.Lerp(gameObject.transform.position.y, player.position.y, speed), -10);
+        // update position
+        Vector3 targetPosition = player.position + offset;
+        transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
+
     }
 }
