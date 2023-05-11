@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     private BasicMovement movement;
     private BasicJump jump;
     //fields
-    [SerializeField] float speed, jumpF;
+    private float speed = 1.5f, jumpF = 2.8f;
     private float inpH;
     private Vector2 _direction;
     //lists

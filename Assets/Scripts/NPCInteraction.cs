@@ -13,7 +13,7 @@ public class NPCInteraction : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("Player");
+        player = GameObject.Find("player");
     }
 
     // Update is called once per frame
@@ -26,7 +26,7 @@ public class NPCInteraction : MonoBehaviour
     {
         Vector2 direction = player.transform.position - gameObject.transform.position;
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, distance);
-        if (hit.collider != null && CheckDistance(hit) && hit.collider.transform.name == "Player" && !interactMenu.activeSelf)
+        if (CheckDistance(hit) && hit.collider.transform.name == player.transform.name && !interactMenu.activeSelf)
         {
             interactMenu.SetActive(true);
         }
