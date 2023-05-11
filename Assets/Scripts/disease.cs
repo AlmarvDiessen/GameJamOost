@@ -11,7 +11,8 @@ public class Disease : MonoBehaviour
     }
 
     // Update is called once per frame
-    public void Update() {
+    public void Update()
+    {
         ApplyEffect();
     }
 

@@ -36,7 +36,8 @@ public class PlayerController : MonoBehaviour
     {
         Jumping();
         ToLow();
-        foreach (Disease disease in diseases) {
+        foreach (Disease disease in diseases)
+        {
             disease.ApplyEffect();
         }
     }
