@@ -48,8 +48,8 @@ public class PlayerController : MonoBehaviour,IEntity
     private void Update()
     {
         Jumping();
-        Attack();
-        ChangeBook();
+        //Attack();
+        //ChangeBook();
         ToLow();
     }
     private void ChangeBook()
@@ -76,26 +76,26 @@ public class PlayerController : MonoBehaviour,IEntity
             jump.Jump(2.8f);
         }
     }
-    private void Attack()
-    {
-        if (Input.GetButtonDown("Fire1"))
-        {
-            try
-            {
-                attacks[currentAttack].Attack();//calls attack of the active attack
-            }
-            catch
-            {
-                Debug.Log("you don't have a spell book");
-            }
-        }
-    }
-    private void ToLow()
-    {
-        if (transform.position.y < -4.1)
-        {
-            results.GameOver();
-            gameObject.SetActive(false);
-        }
-    }
+    //private void Attack()
+    //{
+    //    if (Input.GetButtonDown("Fire1"))
+    //    {
+    //        try
+    //        {
+    //            attacks[currentAttack].Attack();//calls attack of the active attack
+    //        }
+    //        catch
+    //        {
+    //            Debug.Log("you don't have a spell book");
+    //        }
+    //    }
+    //}
+    //private void ToLow()
+    //{
+    //    if (transform.position.y < -4.1)
+    //    {
+    //        results.GameOver();
+    //        gameObject.SetActive(false);
+    //    }
+    //}
 }
