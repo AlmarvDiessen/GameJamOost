@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     private BasicMovement movement;
     private BasicJump jump;
     //fields
+    [SerializeField] float speed, jumpF;
     private float inpH;
     private Vector2 _direction;
    
@@ -40,14 +41,14 @@ public class PlayerController : MonoBehaviour
         inpH = Input.GetAxis("Horizontal");//gets the horizontal input
         _direction = new Vector2(inpH, 0);//gets direction
         //gives direction and calls Move. The second argument is the speed
-        movement.Move(_direction,1f);
+        movement.Move(_direction,speed);
     }
     private void Jumping()
     {
         if (Input.GetButtonDown("Jump"))
         {
             //calls jump function and gives the jump force as argument
-            jump.Jump(2.8f);
+            jump.Jump(jumpF);
         }
     }
     
