@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    [SerializeField] private Transform player;
-    [SerializeField] private float speed = 0.1f;
-    [SerializeField] private Transform camera;
 
-    public float SmoothTime = 0.3f;
-
-    // This value will change at the runtime depending on target movement. Initialize with zero vector.
+    private Vector3 offset = new Vector3 (0, 0, -10f);
+    [SerializeField] private float smoothTime= 0.25f;
     private Vector3 velocity = Vector3.zero;
+
+    [SerializeField] private Transform player;
 
     // Start is called before the first frame update
     void Start()
@@ -22,10 +20,8 @@ public class CameraMovement : MonoBehaviour
     void LateUpdate()
     {
         // update position
-        Vector3 targetPosition = player.position;
-        camera.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, SmoothTime);
+        Vector3 targetPosition = player.position + offset;
+        transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
 
-        // update rotation
-        transform.LookAt(player);
     }
 }

@@ -12,7 +12,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float speed, jumpF;
     private float inpH;
     private Vector2 _direction;
-   
+    //lists
+    private List<Disease> diseases = new List<Disease>();
+
     //properties
     public Vector2 Direction
     {
@@ -34,6 +36,9 @@ public class PlayerController : MonoBehaviour
     {
         Jumping();
         ToLow();
+        foreach (Disease disease in diseases) {
+            disease.ApplyEffect();
+        }
     }
   
     private void Walking()
