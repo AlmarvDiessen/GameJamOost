@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Disease : MonoBehaviour
+public class Disease : MonoBehaviour, IDeseaseAble
 {
 
     //base class for your effect.
@@ -12,6 +12,7 @@ public class Disease : MonoBehaviour
     public Disease() {
 
     }
+
     public void Update() {
         ApplyEffect();
     }
