@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Disease : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
+    //base class for your effect.
+    //you should deprive your effect off this class and make the effect in your new class.
 
     // Update is called once per frame
-    public void Update()
-    {
+    public Disease() {
+
+    }
+    public void Update() {
         ApplyEffect();
     }
 

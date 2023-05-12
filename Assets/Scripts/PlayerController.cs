@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 _direction;
     //lists
     private List<Disease> diseases = new List<Disease>();
+    [SerializeField] private Animator animation;
 
     //properties
     public Vector2 Direction
@@ -26,6 +28,8 @@ public class PlayerController : MonoBehaviour
     {
         movement = GetComponent<BasicMovement>();
         jump = GetComponent<BasicJump>();
+        Disease disease = new SightSickness(2f, 2f);
+        diseases.Add(disease);
     }
  
     private void FixedUpdate()//calls scripts that should be updated
@@ -39,6 +43,23 @@ public class PlayerController : MonoBehaviour
         foreach (Disease disease in diseases)
         {
             disease.ApplyEffect();
+        }
+        float movement = Input.GetAxis("Horizontal");
+        if (movement > 0)
+        {
+            animation.SetBool("Animator", true); ;
+            gameObject.TryGetComponent<SpriteRenderer>(out SpriteRenderer sr);
+            sr.flipX = false;
+        }
+        if (movement < 0)
+        {
+            animation.SetBool("Animator", true);
+            gameObject.TryGetComponent<SpriteRenderer>(out SpriteRenderer sr);
+            sr.flipX = true;
+        }
+        if (movement == 0)
+        {
+            animation.SetBool("Animator", false);
         }
     }
   
