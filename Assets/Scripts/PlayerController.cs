@@ -14,8 +14,7 @@ public class PlayerController : MonoBehaviour
     private float inpH;
     private Vector2 _direction;
     //lists
-    private List<Disease> diseases = new List<Disease>();
-    [SerializeField] private Animator animation;
+    private List<IDeseaseAble> actions = new List<IDeseaseAble>();
 
     //properties
     public Vector2 Direction
@@ -28,8 +27,14 @@ public class PlayerController : MonoBehaviour
     {
         movement = GetComponent<BasicMovement>();
         jump = GetComponent<BasicJump>();
-        Disease disease = new SightSickness(2f, 2f);
-        diseases.Add(disease);
+
+
+        MonoBehaviour[] allScripts = FindObjectsOfType<MonoBehaviour>();
+        for (int i = 0; i < allScripts.Length; i++) {
+            if (allScripts[i] is IDeseaseAble)
+                actions.Add(allScripts[i] as IDeseaseAble);
+        }
+
     }
  
     private void FixedUpdate()//calls scripts that should be updated
@@ -40,25 +45,25 @@ public class PlayerController : MonoBehaviour
     {
         Jumping();
         ToLow();
-        foreach (Disease disease in diseases) {
-            disease.ApplyEffect();
+        foreach (IDeseaseAble disease in actions) {
+            disease.Update();
         }
         float movement = Input.GetAxis("Horizontal");
         if (movement > 0)
         {
-            animation.SetBool("Animator", true); ;
+            GetComponent<Animation>().SetBool("Animator", true); ;
             gameObject.TryGetComponent<SpriteRenderer>(out SpriteRenderer sr);
             sr.flipX = false;
         }
         if (movement < 0)
         {
-            animation.SetBool("Animator", true);
+            GetComponent<Animation>().SetBool("Animator", true);
             gameObject.TryGetComponent<SpriteRenderer>(out SpriteRenderer sr);
             sr.flipX = true;
         }
         if (movement == 0)
         {
-            animation.SetBool("Animator", false);
+            GetComponent<Animation>().SetBool("Animator", false);
         }
     }
   

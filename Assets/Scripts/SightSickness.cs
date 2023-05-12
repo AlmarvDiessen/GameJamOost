@@ -6,8 +6,8 @@ public class SightSickness : Disease {
 
     private PostProcessVolume volume;
     private Vignette vignette;
-    private float intensity;
-    private float speed;
+    private float intensity = 2f;
+    private float speed = 2f;
 
 
     public SightSickness(float pIntensity, float pSpeed) : base() {
