@@ -43,7 +43,6 @@ public class ScreenShake : MonoBehaviour
         else
         {
             shakeDuration = 0f;
-            transform.localPosition = initialPosition;
         }
     }
     void OnEnable()
