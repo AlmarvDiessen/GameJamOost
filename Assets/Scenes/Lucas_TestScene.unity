@@ -1481,6 +1481,31 @@ MonoBehaviour:
   player: {fileID: 0}
   distance: 0.1
   interactMenu: {fileID: 85676003}
+--- !u!1 &776622766 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1946809108057372582, guid: dd6c0842993236449b32e0626bb93ca7, type: 3}
+  m_PrefabInstance: {fileID: 2035689372}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &776622774
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776622766}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0f4d7a52c2f3efb4ea42a39ec76fca30, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &819390138
 GameObject:
   m_ObjectHideFlags: 0
@@ -2071,13 +2096,29 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 619395788, guid: dd6c0842993236449b32e0626bb93ca7, type: 3}
-      propertyPath: camera
+      propertyPath: shakeMagnitude
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1946809108057372577, guid: dd6c0842993236449b32e0626bb93ca7, type: 3}
+      propertyPath: animation
       value: 
-      objectReference: {fileID: 2035689373}
+      objectReference: {fileID: 776622774}
+    - target: {fileID: 1946809108057372578, guid: dd6c0842993236449b32e0626bb93ca7, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 1946809108057372578, guid: dd6c0842993236449b32e0626bb93ca7, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.59
+      objectReference: {fileID: 0}
     - target: {fileID: 1946809108057372582, guid: dd6c0842993236449b32e0626bb93ca7, type: 3}
       propertyPath: m_Name
       value: player
       objectReference: {fileID: 0}
+    - target: {fileID: 1946809108057372588, guid: dd6c0842993236449b32e0626bb93ca7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -44149497, guid: ce6b55bc75e6f96419cc063022688b3c, type: 3}
     - target: {fileID: 1946809108057372591, guid: dd6c0842993236449b32e0626bb93ca7, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2124,8 +2165,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd6c0842993236449b32e0626bb93ca7, type: 3}
---- !u!4 &2035689373 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 619395787, guid: dd6c0842993236449b32e0626bb93ca7, type: 3}
-  m_PrefabInstance: {fileID: 2035689372}
-  m_PrefabAsset: {fileID: 0}

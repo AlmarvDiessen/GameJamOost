@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 _direction;
     //lists
     private List<Disease> diseases = new List<Disease>();
+    [SerializeField] private Animator animation;
 
     //properties
     public Vector2 Direction
@@ -38,6 +39,23 @@ public class PlayerController : MonoBehaviour
         ToLow();
         foreach (Disease disease in diseases) {
             disease.ApplyEffect();
+        }
+        float movement = Input.GetAxis("Horizontal");
+        if (movement > 0)
+        {
+            animation.SetBool("Animator", true); ;
+            gameObject.TryGetComponent<SpriteRenderer>(out SpriteRenderer sr);
+            sr.flipX = false;
+        }
+        if (movement < 0)
+        {
+            animation.SetBool("Animator", true);
+            gameObject.TryGetComponent<SpriteRenderer>(out SpriteRenderer sr);
+            sr.flipX = true;
+        }
+        if (movement == 0)
+        {
+            animation.SetBool("Animator", false);
         }
     }
   
