@@ -1,13 +1,13 @@
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine;
 
-public class SightSickness : Disease {
+public class SightSickness : Disease ,IDeseaseAble {
     // Start is called before the first frame update
 
     private PostProcessVolume volume;
     private Vignette vignette;
-    private float intensity = 2f;
-    private float speed = 2f;
+    public float intensity = 2f;
+    public float speed = 2f;
 
 
     public SightSickness(float pIntensity, float pSpeed) : base() {
@@ -26,7 +26,7 @@ public class SightSickness : Disease {
     }
 
     //override the virutal function to apply the effect in this function.
-    public override void ApplyEffect() {
+    public void ApplyEffect() {
         vignette.intensity.value = Mathf.Sin(Time.realtimeSinceStartup * speed) * intensity;
 
     }

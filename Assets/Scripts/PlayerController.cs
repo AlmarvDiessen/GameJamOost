@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
         jump = GetComponent<BasicJump>();
 
 
+
         MonoBehaviour[] allScripts = FindObjectsOfType<MonoBehaviour>();
         for (int i = 0; i < allScripts.Length; i++) {
             if (allScripts[i] is IDeseaseAble)
@@ -40,27 +41,14 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()//calls scripts that should be updated
     {
         Walking();
-        foreach (Disease disease in actions)
+        AnimatePlayer();
+
+
+        foreach (IDeseaseAble disease in actions)
         {
-            //disease.ApplyEffect();
-        }
-        float movement = Input.GetAxis("Horizontal");
-        if (movement > 0)
-        {
-            GetComponent<Animator>().SetBool("Animator", true);
-            gameObject.TryGetComponent<SpriteRenderer>(out SpriteRenderer sr);
-            sr.flipX = false;
-        }
-        if (movement < 0)
-        {
-            GetComponent<Animator>().SetBool("Animator", true);
-            gameObject.TryGetComponent<SpriteRenderer>(out SpriteRenderer sr);
-            sr.flipX = true;
-        }
-        if (movement == 0)
-        {
-            GetComponent<Animator>().SetBool("Animator", false);
-        }
+            disease.ApplyEffect();
+        } 
+
     }
     private void Update()
     {
@@ -89,6 +77,23 @@ public class PlayerController : MonoBehaviour
         {
             //results.GameOver();
             SceneManager.LoadScene("DaanScene");
+        }
+    }
+
+    private void AnimatePlayer() {
+        float movement = Input.GetAxis("Horizontal");
+        if (movement > 0) {
+            GetComponent<Animator>().SetBool("Animator", true);
+            gameObject.TryGetComponent<SpriteRenderer>(out SpriteRenderer sr);
+            sr.flipX = false;
+        }
+        if (movement < 0) {
+            GetComponent<Animator>().SetBool("Animator", true);
+            gameObject.TryGetComponent<SpriteRenderer>(out SpriteRenderer sr);
+            sr.flipX = true;
+        }
+        if (movement == 0) {
+            GetComponent<Animator>().SetBool("Animator", false);
         }
     }
 }

@@ -14,11 +14,6 @@ public class Disease : MonoBehaviour, IDeseaseAble
     }
 
     public void Update() {
-        ApplyEffect();
-    }
-
-
-    public virtual void ApplyEffect() {
-
+    
     }
 }
