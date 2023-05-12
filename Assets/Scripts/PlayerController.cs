@@ -43,19 +43,19 @@ public class PlayerController : MonoBehaviour
         float movement = Input.GetAxis("Horizontal");
         if (movement > 0)
         {
-            GetComponent<Animation>().SetBool("Animator", true); ;
+            GetComponent<Animator>().SetBool("Animator", true);
             gameObject.TryGetComponent<SpriteRenderer>(out SpriteRenderer sr);
             sr.flipX = false;
         }
         if (movement < 0)
         {
-            GetComponent<Animation>().SetBool("Animator", true);
+            GetComponent<Animator>().SetBool("Animator", true);
             gameObject.TryGetComponent<SpriteRenderer>(out SpriteRenderer sr);
             sr.flipX = true;
         }
         if (movement == 0)
         {
-            GetComponent<Animation>().SetBool("Animator", false);
+            GetComponent<Animator>().SetBool("Animator", false);
         }
     }
     private void Update()
