@@ -22,28 +22,22 @@ public class PlayerController : MonoBehaviour
         get { return _direction; }
         set { _direction = value; }
     }
+    public float Speed
+    {
+        get { return speed; }
+        set { speed = value; }
+    }
     //METHODS
     void Start()
     {
         movement = GetComponent<BasicMovement>();
         jump = GetComponent<BasicJump>();
-
-
-
-        MonoBehaviour[] allScripts = FindObjectsOfType<MonoBehaviour>();
-        for (int i = 0; i < allScripts.Length; i++) {
-            if (allScripts[i] is IDeseaseAble)
-                actions.Add(allScripts[i] as IDeseaseAble);
-        }
-
     }
  
     private void FixedUpdate()//calls scripts that should be updated
     {
         Walking();
         AnimatePlayer();
-
-
         foreach (IDeseaseAble disease in actions)
         {
             disease.ApplyEffect();
@@ -94,6 +88,18 @@ public class PlayerController : MonoBehaviour
         }
         if (movement == 0) {
             GetComponent<Animator>().SetBool("Animator", false);
+        }
+    }
+    public void RandomJump()
+    {
+        StartCoroutine(SneezeJump());
+    }
+    private IEnumerator SneezeJump()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            yield return new WaitForSeconds(Random.Range(1, 4));
+            jump.Jump(jumpF);
         }
     }
 }
