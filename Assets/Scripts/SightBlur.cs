@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
-public class SightBlur : Disease
+public class SightBlur : MonoBehaviour
 {
     private PostProcessVolume volume;
     private ChromaticAberration Chromatic;
@@ -15,7 +15,7 @@ public class SightBlur : Disease
         gameObject.TryGetComponent<ChromaticAberration>(out Chromatic);
     }
 
-    public override void ApplyEffect()
+    public void ApplyEffect()
     {
         Chromatic.intensity.value = Mathf.Sin(Time.realtimeSinceStartup * speed) * intensity;
 
