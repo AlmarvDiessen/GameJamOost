@@ -9,7 +9,7 @@ public class ScreenShake : MonoBehaviour {
     [SerializeField] private float shakeDuration = 1f;
 
     // A measure of magnitude for the shake. Tweak based on your preference
-    [SerializeField] private float shakeMagnitude = 0.1f;
+    [SerializeField] private float shakeMagnitude = 0.02f;
 
     // A measure of how quickly the shake effect should evaporate
     [SerializeField] private float dampingSpeed = 1.0f;
@@ -23,6 +23,7 @@ public class ScreenShake : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         shakeInterval = 4f;
+        shakeMagnitude = 0.02f;
     }
 
     // Update is called once per frame
@@ -37,7 +38,7 @@ public class ScreenShake : MonoBehaviour {
         } while (shakeDuration >= 0 && shakeInterval <= 0);
 
         if (shakeInterval <= 0 && shakeDuration < 0) {
-            shakeDuration = 0.02f;
+            shakeDuration = 1f;
             shakeInterval = 4f;
         }
     }
