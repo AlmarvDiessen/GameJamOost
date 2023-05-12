@@ -1585,9 +1585,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camera: {fileID: 619395780}
-  hasEffect: 0
-  duration: 10000
-  tempDuration: 10000
+  shakeDuration: 0
+  shakeMagnitude: 0.7
+  dampingSpeed: 1
 --- !u!1 &650307790
 GameObject:
   m_ObjectHideFlags: 0
