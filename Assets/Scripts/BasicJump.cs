@@ -25,8 +25,8 @@ public class BasicJump : MonoBehaviour
     {
         //Debug.Log(onGround);
         //checks if the ground layer is within a certain range
-        onGround = (Physics2D.OverlapBox(new Vector2(transform.position.x, transform.position.y - 0.08f),
-            new Vector2(0.05f,0.15f),0, ground)!=null);
+        onGround = (Physics2D.OverlapBox(new Vector2(transform.position.x, transform.position.y - 0.1f),
+            new Vector2(0.05f,0.5f),0, ground)!=null);
     }
     public void Jump(float jumpForce)
     {
@@ -40,7 +40,7 @@ public class BasicJump : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawCube(new Vector2(transform.position.x, transform.position.y - 0.08f), new Vector2(0.05f, 0.15f));
+        Gizmos.DrawCube(new Vector2(transform.position.x, transform.position.y - 0.1f), new Vector2(0.05f, 0.5f));
     }
 }
 
