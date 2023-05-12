@@ -66,15 +66,6 @@ public class PlayerController : MonoBehaviour
             disease.Update();
         }
     }
-    private void Update()
-    {
-        Jumping();
-        ToLow();
-        foreach (Disease disease in diseases) {
-            disease.ApplyEffect();
-        }
-    }
-  
     private void Walking()
     {
         inpH = Input.GetAxis("Horizontal");//gets the horizontal input
