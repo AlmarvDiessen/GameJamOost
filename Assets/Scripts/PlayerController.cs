@@ -88,7 +88,7 @@ public class PlayerController : MonoBehaviour
         if (transform.position.y < -4.1)
         {
             //results.GameOver();
-            gameObject.SetActive(false);
+            SceneManager.LoadScene("DaanScene");
         }
     }
 }
