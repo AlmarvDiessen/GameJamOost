@@ -15,8 +15,6 @@ public class ScreenShake : MonoBehaviour
     // A measure of how quickly the shake effect should evaporate
     [SerializeField] private float dampingSpeed = 1.0f;
 
-    // The initial position of the GameObject
-    Vector3 initialPosition;
 
     void Awake()
     {
@@ -36,19 +34,14 @@ public class ScreenShake : MonoBehaviour
     {
         if (shakeDuration > 0)
         {
-            transform.localPosition = initialPosition + Random.insideUnitSphere * shakeMagnitude;
+            transform.localPosition = transform.localPosition + Random.insideUnitSphere * shakeMagnitude;
 
             shakeDuration -= Time.deltaTime * dampingSpeed;
         }
         else
         {
             shakeDuration = 0f;
-            transform.localPosition = initialPosition;
         }
-    }
-    void OnEnable()
-    {
-        initialPosition = transform.localPosition;
     }
     public void TriggerShake()
     {
