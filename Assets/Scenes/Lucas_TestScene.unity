@@ -1156,6 +1156,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6987444040971031136, guid: 012775236d883874e9efd4a0b63a88c8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6987444040971031140, guid: 012775236d883874e9efd4a0b63a88c8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6987444040971031140, guid: 012775236d883874e9efd4a0b63a88c8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6987444040971031140, guid: 012775236d883874e9efd4a0b63a88c8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 2.7
+      objectReference: {fileID: 0}
     - target: {fileID: 6987444041510434125, guid: 012775236d883874e9efd4a0b63a88c8, type: 3}
       propertyPath: m_Name
       value: NPC
@@ -1202,6 +1218,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6987444041510434131, guid: 012775236d883874e9efd4a0b63a88c8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6987444041590215523, guid: 012775236d883874e9efd4a0b63a88c8, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
