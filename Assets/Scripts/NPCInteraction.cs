@@ -10,10 +10,16 @@ public class NPCInteraction : MonoBehaviour
     [Header("")]
     [SerializeField] private float distance = 1;
     [SerializeField] private GameObject interactMenu;
+    [Header("fill in a number that has not been used yet")]
+    [SerializeField] int DebuffNO;
+    PlayerController playerCon;
+    private GameObject cam;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("player");
+        playerCon = GameObject.Find("player").GetComponent<PlayerController>();
+        cam = GameObject.Find("Main Camera");
     }
 
     // Update is called once per frame
@@ -46,5 +52,26 @@ public class NPCInteraction : MonoBehaviour
         {
             return false;
         }
+    }
+    public void BurdenTaken()
+    {
+        switch (DebuffNO)
+        {
+            case 1: playerCon.RandomJump();
+                break;
+            case 2:
+                cam.GetComponent<SightSickness>().enabled = true;
+                break;
+            case 3:
+                playerCon.Speed = -20;
+                break;
+            case 4:
+                cam.GetComponent<ScreenShake>().enabled = true;
+                break;
+        }
+    } 
+    public void BurdenNotTaken()
+    {
+
     }
 }
