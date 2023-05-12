@@ -35,14 +35,6 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()//calls scripts that should be updated
     {
         Walking();
-    }
-    private void Update()
-    {
-        Jumping();
-        ToLow();
-        foreach (Disease disease in diseases) {
-            disease.ApplyEffect();
-        }
         float movement = Input.GetAxis("Horizontal");
         if (movement > 0)
         {
@@ -59,6 +51,14 @@ public class PlayerController : MonoBehaviour
         if (movement == 0)
         {
             animation.SetBool("Animator", false);
+        }
+    }
+    private void Update()
+    {
+        Jumping();
+        ToLow();
+        foreach (Disease disease in diseases) {
+            disease.ApplyEffect();
         }
     }
   
