@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -27,6 +28,8 @@ public class PlayerController : MonoBehaviour
     {
         movement = GetComponent<BasicMovement>();
         jump = GetComponent<BasicJump>();
+        Disease disease = new SightSickness(2f, 2f);
+        diseases.Add(disease);
     }
  
     private void FixedUpdate()//calls scripts that should be updated
