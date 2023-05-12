@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e25562a89d56e54fb94f7c397c585af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 619395780}
+  camera: {fileID: 619395787}
   shakeDuration: 0
   shakeMagnitude: 0.7
   dampingSpeed: 1
